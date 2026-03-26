@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp - Purple Edition</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ✅ LOGIN OVERLAY (New – replaces prompt()) -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-box">
+            <div class="login-icon">💬</div>
+            <h2>Welcome to ChatApp</h2>
+            <p style="color: var(--text-secondary);">Enter a username to continue</p>
+
+            <input 
+                type="text" 
+                id="username-input" 
+                maxlength="20"
+                placeholder="Your username..."
+                autocomplete="off"
+            >
+
+            <div class="login-error" id="login-error"></div>
+
+            <button id="join-btn" type="button">Join Chat</button>
+        </div>
+    </div>
+
+
+    <!-- ✅ CHAT CONTAINER -->
+    <!-- Hidden until user joins -->
+    <div class="chat-container" id="chat-container" style="display: none;">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>💬 ChatApp</h1>
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="search-input"
+                        placeholder="Search conversations..."
+                    >
+                </div>
+            </div>
+
+            <!-- Users list -->
+            <div class="chat-list" id="user-list">
+                <!-- Users injected dynamically -->
+            </div>
+        </aside>
+
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="chat-header-info">
+                    <div>
+                        <h2>Global Chat</h2>
+                        <div class="status">Online Now</div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- Messages -->
+            <div class="messages" id="messages-container">
+                <div class="empty-state">
+                    <h3>Start a conversation</h3>
+                    <p>Send a message to begin chatting</p>
+                </div>
+            </div>
+
+
+            <!-- Input -->
+            <div class="message-input-container">
+                <div class="message-input-wrapper">
+
+                    <div class="input-actions">
+                        <button class="attach-btn" type="button" title="Attach File">📎</button>
+                        <button class="attach-btn" type="button" title="Emoji">😊</button>
+                    </div>
+
+                    <div class="message-input-box">
+                        <textarea 
+                            id="msg-input"
+                            placeholder="Type a message..."
+                            rows="1"
+                            maxlength="2000"
+                        ></textarea>
+                    </div>
+
+                    <button 
+                        class="send-btn"
+                        id="send-button"
+                        type="button"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <!-- ✅ Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- ✅ Your JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
