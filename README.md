@@ -1,4 +1,3 @@
-"# PurpleChat" 
 # 💬 ChatApp - Purple Edition
 
 A real-time chat application built with **Node.js**, **Express**, and **Socket.IO** featuring a sleek purple neon UI.
